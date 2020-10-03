@@ -1,0 +1,12 @@
+{
+"Usuário 1": {
+    "nome": "Usuário Um",
+    "cpf": "07960082995",
+    "senha": "12345678"
+    },
+    "Usuário Inválido": {
+    "nome": "Usuário Inválido",
+    "cpf": "23423423423",
+    "senha": "12345678"
+    }
+}
