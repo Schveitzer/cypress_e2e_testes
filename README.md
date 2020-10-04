@@ -6,6 +6,7 @@ O projeto inclui:
   - Cypress
 - Features:
   - Testes usando liguangem Gherkin com cucumber
+  - Execução dos testes com Docker
   - Data driven testes
   - Page Object Pattern
   - Comandos customizados
