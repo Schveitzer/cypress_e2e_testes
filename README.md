@@ -12,6 +12,15 @@ O projeto inclui:
   - Guia de estilos baseado na ES6
   - Relatórios com Allure (Print em caso de falha)
 
+## Conteúdo
+
+- [Estrutura do Projeto](#Estrutura-do-Projeto)
+- [Requisitos](#Requisitos)
+- [Iniciando](#Iniciando)
+- [Executando os testes](#Executando-os-testes)
+- [Relatório](#Relatório)
+- [Executando com Docker](#Executando-com-Docker)
+
 ## Estrutura do Projeto
 
 ```
@@ -42,8 +51,9 @@ O projeto inclui:
 
 ## Requisitos
 
-- node >= 12.18.x - [how to install Node](https://nodejs.org/en/download/)
-- yarn >= 1.17.x - [how to install Yarn](https://yarnpkg.com/en/docs/install#debian-stable)
+- node >= 12.18.x - [Como instalar o Node](https://nodejs.org/en/download/)
+- yarn >= 1.17.x - [Como instalar o Yarn](https://yarnpkg.com/en/docs/install#debian-stable)
+- Docker (Opcional) >= 18.09 - [Como instalar o Docker](https://docs.docker.com/get-docker/)
 
 ## Iniciando
 
@@ -79,18 +89,60 @@ $ yarn test:chrome:headless
 
 Para gerar o relatório execute o comando:
 
-> Você deve estar no diretório /projeto_testes
+> Você deve estar no diretório /testes_e2e_serasa
 
 ```bash
-$ allure generate --clean cypress/results -o cypress/results/allure-report
+$ yarn report:generate
 ```
 
 Para abrir o relatório no navegador execute:
 
 ```bash
-$ allure open cypress/results/allure-report
+$ yarn report:open
 ```
 
 Relatório que foi gerado:
 
 <a href="https://ibb.co/QDJvnGr"><img src="https://i.ibb.co/8Ymg2V6/screenshot-127-0-1-1-41433-2020-10-03-14-17-31.png" alt="screenshot-127-0-1-1-41433-2020-10-03-14-17-31" border="0"></a>
+
+## Executando com Docker
+
+Para executar os testes usando docker:
+
+```bash
+$ export CYPRESS_BASE_URL=https://www.serasa.com.br
+```
+
+Buildar a imagem:
+
+```bash
+$ make -i build
+```
+
+Executar os testes:
+
+```bash
+$ make test.run
+```
+
+## Relatório
+
+Copiar os arquivos do relatório:
+
+```bash
+$ make report.get
+```
+
+Visualizar o relatório:
+
+> Você deve estar no diretório /testes_e2e_serasa
+
+```bash
+$ yarn report:generate
+```
+
+Para abrir o relatório no navegador execute:
+
+```bash
+$ yarn report:open
+```

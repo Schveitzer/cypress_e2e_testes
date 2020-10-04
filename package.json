@@ -7,7 +7,9 @@
   "scripts": {
     "test:run": "npx cypress open",
     "test:chrome": "npx cypress run --config video=false --env allure=true --browser chrome",
-    "test:chrome:headless": "npx cypress run --headless --config video=false --env allure=true --browser chrome"
+    "test:chrome:headless": "npx cypress run --headless --config video=false --env allure=true --browser chrome",
+    "report:generate": "allure generate --clean cypress/results -o cypress/results/allure-report",
+    "report:open": "allure open cypress/results/allure-report"
   },
   "dependencies": {
     "@shelex/cypress-allure-plugin": "^1.8.2",
