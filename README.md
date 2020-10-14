@@ -1,4 +1,4 @@
-# Testes e2e para o sistema Serasa
+# Testes e2e com Cypress e Cucumber
 
 O projeto inclui:
 
@@ -90,7 +90,7 @@ $ yarn test:chrome:headless
 
 Para gerar o relatório execute o comando:
 
-> Você deve estar no diretório /testes_e2e_serasa
+> Você deve estar no diretório /testes_e2e_cypress
 
 ```bash
 $ yarn report:generate
@@ -136,7 +136,7 @@ $ make report.get
 
 Visualizar o relatório:
 
-> Você deve estar no diretório /testes_e2e_serasa
+> Você deve estar no diretório /testes_e2e_cypress
 
 ```bash
 $ yarn report:generate
