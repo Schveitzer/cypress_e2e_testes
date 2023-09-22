@@ -1,148 +1,149 @@
 # Testes e2e com Cypress e Cucumber
 
-O projeto inclui:
+he project includes:
 
-- Framworks:
+- Frameworks:
   - Cypress
 - Features:
-  - Testes usando liguangem Gherkin com cucumber
-  - Execução dos testes com Docker
-  - Data driven testes
+  - Tests using Gherkin language with Cucumber
+  - Test execution with Docker
+  - Data-driven tests
   - Page Object Pattern
-  - Comandos customizados
-  - Guia de estilos baseado na ES6
-  - Relatórios com Allure (Print em caso de falha)
+  - Custom commands
+  - Style guide based on ES6
+  - Reports with Allure (Screenshots in case of failure)
 
-## Conteúdo
+## Contents
 
-- [Estrutura do Projeto](#Estrutura-do-Projeto)
-- [Requisitos](#Requisitos)
-- [Iniciando](#Iniciando)
-- [Executando os testes](#Executando-os-testes)
-- [Relatório](#Relatório)
-- [Executando com Docker](#Executando-com-Docker)
+- [Project Structure](#Project-Structure)
+- [Requirements](#Requirements)
+- [Getting Started](#Getting-Started)
+- [Running the Tests](#Running-the-Tests)
+- [Report](#Report)
+- [Running with Docker](#Running-with-Docker)
 
-## Estrutura do Projeto
+## Project Structure
 
 ```
 .
 ├── cypress
 │   ├── fixtures
-│   │   └── credenciais.json //Contém as credenciais que são usadas nos testes
+│   │   └── credentials.json // Contains credentials used in tests
 │   ├── integration
 │   │   ├── constants
-│   │   │   └── MensagensSistema.constant.js // Contém as mensagens do sistema
+│   │   │   └── SystemMessages.constant.js // Contains system messages
 │   │   ├── features
 │   │   │   └── login
-│   │   │       └── login.feature // Feature a ser testada
+│   │   │       └── login.feature // Feature to be tested
 │   │   ├── pages
-│   │   │   └── Login.page.js // Arquivo com o PageObject da página Login
+│   │   │   └── Login.page.js // Page Object file for the Login page
 │   │   └── steps
-│   │       └── login.steps.js // Arquivo de steps que será consumida pelo arquivo de feature
+│   │       └── login.steps.js // Steps file consumed by the feature file
 │   ├── plugins
 │   │   └── index.js
 │   └── support
-│       ├── commands.js // Contém os comandos personalizados
+│       ├── commands.js // Contains custom commands
 │       └── index.js
 ├── cypress.json
 ├── package.json
 ├── README.md
 └── yarn.lock
+
 ```
 
-## Requisitos
+## Requirements
 
-- node >= 12.18.x - [Como instalar o Node](https://nodejs.org/en/download/)
-- yarn >= 1.17.x - [Como instalar o Yarn](https://yarnpkg.com/en/docs/install#debian-stable)
-- Docker (Opcional) >= 18.09 - [Como instalar o Docker](https://docs.docker.com/get-docker/)
+- node >= 12.18.x - [How to install Node](https://nodejs.org/en/download/)
+- yarn >= 1.17.x - [How to install Yarn](https://yarnpkg.com/en/docs/install#debian-stable)
+- Docker (Optional) >= 18.09 - [How to install Docker](https://docs.docker.com/get-docker/)
 
-## Iniciando
+## Getting Started
 
-Instalar as dependências:
+Install dependencies:
 
 ```bash
 $ yarn install
 ```
 
-## Executando os testes:
+## Running the Tests:
 
-Primeiro deve-se definir a variavél de ambiente que terá a url do sistema:
+First, you need to set the environment variable with the system's URL:
 
-> O cypress identifica automaticamente as variáveis de ambiente que iniciam com CYPRESS\_\*
+> Cypress automatically recognizes environment variables that start with CYPRESS_*
 
 ```bash
 $ export CYPRESS_BASE_URL=https://www.serasa.com.br
 ```
 
-Para executar os testes no google chorme de forma visual:
+To execute the tests in Google Chrome visually::
 
 ```bash
 $ yarn test:chrome
 ```
 
-Para executar os testes no google chrome no mode "headless":
+To execute the tests in headless mode in Google Chrome:
 
 ```bash
 $ yarn test:chrome:headless
 ```
 
-## Relatório
+## Report
 
-Para gerar o relatório execute o comando:
+To generate the report, run the following command:
 
-> Você deve estar no diretório /testes_e2e_cypress
+> You must be in the /testes_e2e_cypress directory
 
 ```bash
 $ yarn report:generate
 ```
 
-Para abrir o relatório no navegador execute:
+To open the report in the browser, execute:
 
 ```bash
 $ yarn report:open
 ```
 
-Relatório que foi gerado:
+Here is an example of the generated report:
 
 <a href="https://ibb.co/QDJvnGr"><img src="https://i.ibb.co/8Ymg2V6/screenshot-127-0-1-1-41433-2020-10-03-14-17-31.png" alt="screenshot-127-0-1-1-41433-2020-10-03-14-17-31" border="0"></a>
 
-## Executando com Docker
+## Running with Docker
 
-Para executar os testes usando docker:
+To execute the tests using Docker:
 
 ```bash
 $ export CYPRESS_BASE_URL=https://www.serasa.com.br
 ```
 
-Buildar a imagem:
+Build the Docker image:
 
 ```bash
 $ make -i build
 ```
 
-Executar os testes:
+Run the tests:
 
 ```bash
 $ make test.run
 ```
 
-## Relatório
+## Report
 
-Copiar os arquivos do relatório:
+Copy the report files:
 
 ```bash
 $ make report.get
 ```
 
-Visualizar o relatório:
+View the report:
 
-> Você deve estar no diretório /testes_e2e_cypress
-
+> You must be in the /testes_e2e_cypress directory
+> 
 ```bash
 $ yarn report:generate
 ```
 
-Para abrir o relatório no navegador execute:
+To open the report in the browser, execute:
 
 ```bash
 $ yarn report:open
