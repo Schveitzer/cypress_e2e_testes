@@ -1,4 +1,4 @@
-# Testes e2e com Cypress e Cucumber
+# End-to-End Testing with Cypress and Cucumber
 
 he project includes:
 
